@@ -6,7 +6,7 @@ read -p "Enter path of Q3: " $1
 
 #store the images under the path by sorting them according to modification time
 cd $1
-storeimage=$(ls -Rtr MontrealTest/*/*.jpg)
+storeimage=$(ls -Rtr $1/MontrealTest/*/*.jpg)
 
 #convert and append the pictures
 convert -append $storeimage Q3_MontrealTest.jpg
