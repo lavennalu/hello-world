@@ -3,6 +3,7 @@
 
 #input the path for  the directory (Q3) holding all the images
 read -p "Enter path of Q3: " $1
+echo $1
 
 #store the images under the path by sorting them according to modification time
 cd $1
