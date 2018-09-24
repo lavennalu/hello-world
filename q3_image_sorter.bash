@@ -4,7 +4,7 @@
 #input the path for  the directory (Q3) holding all the images
 
 #store the images under the path by sorting them according to modification time
-ls
+cd $1
 storeimage=$(ls -Rtr MontrealTest/*/*.jpg)
 
 #convert and append the pictures
