@@ -3,7 +3,7 @@
 
 #input the path for  the directory (Q3/MontrealTest) holding all the images
 #store the images under the path by sorting them according to modification time
-cd "$1"
+cd $1
 storeimage=$(ls -Rtr */*.jpg)
 
 #convert and append the pictures
