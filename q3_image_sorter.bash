@@ -5,7 +5,7 @@
 
 #store the images under the path by sorting them according to modification time
 ls
-storeimage=$(ls -Rtr $1/MontrealTest/*/*.jpg)
+storeimage=$(ls -Rtr MontrealTest/*/*.jpg)
 
 #convert and append the pictures
 convert -append $storeimage Q3_MontrealTest.jpg
