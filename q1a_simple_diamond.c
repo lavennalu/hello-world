@@ -1,68 +1,48 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 /* Part A) Simple Diamond */
-void main(int argc, char *argv[]) { 
+int main(int argc, char *argv[]) { 
+  if (argc != 2){ // test if the program has one argument after the name
+    printf("ERROR: Wrong number of arguments. One required.\n");
+    return 1;
+  }
 
-	if (argc == 1) { // test if the program has one argument after the name
-   	  //to begin with, test if the argument is an integer
-   	  if (isNumber(argv[1]) == true){
-   	  	int h = atoi(argv[1]); // cast to an integer
+	if (argc == 2) { // test if the program has one argument after the name
+   	  if (isdigit(argv[1][0])){ // test if the argument is an integer
+   	  	int h = atoi(argv[1]); // parsing an integer
+        //printf("%d\n", h);
    	  	//test if the integer is positive or odd
-   	  	if (h > 0 && h % 2 != 0){
-   	  		print(h); //do print method
-   	  		return 0;
-   	  	}else{ //print error msg
-   	  		printf("ERROR: Bad argument. Height must be positive odd integer.");
-   	  		return -1;
-   	  	}
+   	  	if ((h > 0 ) && (h % 2 != 0)){
+          int i,j;
+   	  		for(i=1; i<=h; i++) { 
+            for(j=1; j<=h-i; j++) { 
+              printf(" "); 
+            } 
+            for(j=h-i+1; j<h+i; j++) { 
+              printf("*"); 
+            } 
+            printf("\n"); 
+          } 
+     
+          for(i=h-1; i>=1; i--) { 
+            for(j=1; j<=(h-i); j++) { 
+              printf(" "); 
+            } 
+            for(j=h-i+1; j<h+i; j++) { 
+              printf("*"); 
+            } 
+            printf("\n"); 
+          } 
+          return 0;
+        }else{
+          printf("ERROR: Bad argument. Height must be positive odd integer. * NOT POSITIVE OR ODD");
+        }	
+   	  }else{ //print error msg
+   	  	printf("ERROR: Bad argument. Height must be positive odd integer. * NOT A DIGIT");
+   	  		return 1;
    	  }
-   }else{ //print an error msg if the input does not match
-      printf("ERROR: Wrong number of arguments. One required.\n");
-      return -1;
-   }    
-} 
-
-bool isNumber(char number[])
-{
-    int i = 0;
-
-    //checking for negative numbers
-    if (number[0] == '-')
-        i = 1;
-    for (; number[i] != 0; i++)
-    {
-        //if (number[i] > '9' || number[i] < '0')
-        if (!isdigit(number[i]))
-            return false;
-    }
-    return true;
+   	}
 }
 
-void print(int n) { 
-    int i,j; 
-    for(i=1; i<=n; i++) 
-    { 
-        for(j=1; j<=n-i; j++) 
-        { 
-            printf(" "); 
-        } 
-        for(j=n-i+1; j<n+i; j++) 
-        { 
-            printf("*"); 
-        } 
-        printf("\n"); 
-    } 
-     
-    for(i=n-1; i>=1; i--) 
-    { 
-        for(j=1; j<=(n-i); j++) 
-        { 
-            printf(" "); 
-        } 
-        for(j=n-i+1; j<n+i; j++) 
-        { 
-            printf("*"); 
-        } 
-        printf("\n"); 
-    } 
-} 
