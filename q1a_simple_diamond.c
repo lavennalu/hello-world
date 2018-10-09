@@ -1,4 +1,4 @@
-#include <studio.h>
+#include <stdio.h>
 
 /* Part A) Simple Diamond */
 void main(int argc, char *argv[]) { 
