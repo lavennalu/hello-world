@@ -43,6 +43,6 @@ int main(int argc, char *argv[]) {
    	  	printf("ERROR: Bad argument. Height must be positive odd integer. * NOT A DIGIT");
    	  		return 1;
    	  }
-   	}
+  }
 }
 
